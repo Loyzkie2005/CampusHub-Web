@@ -1,0 +1,54 @@
+.notification-page-list {
+    padding: 0;
+}
+
+.notification-list {
+    display: grid;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.notification-item:last-child {
+    border-bottom: 0;
+}
+
+.notification-item-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-item-main strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #0f172a;
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.notification-item-main p {
+    margin: 0 0 7px;
+    color: #475569;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    font-weight: 600;
+}
+
+.notification-item-main span {
+    color: #64748b;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.empty-request-row {
+    padding: 28px 20px;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+}

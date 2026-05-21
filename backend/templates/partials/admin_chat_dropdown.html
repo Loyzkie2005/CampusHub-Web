@@ -1,0 +1,117 @@
+{% load static %}
+<div class="dropdown chat-header-dropdown">
+    <button class="header-icon-btn message-header-btn" type="button" aria-label="Messages" data-bs-toggle="dropdown"
+        data-bs-auto-close="outside" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm3.75 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm3.75 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 0 1-4.255-.949L3 20l1.395-3.72A7.152 7.152 0 0 1 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z" />
+        </svg>
+    </button>
+    <div class="dropdown-menu dropdown-menu-end chat-header-menu">
+        <div class="chat-header-menu-title">
+            <h2>Messages</h2>
+        </div>
+
+        <div class="chat-header-search">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+            <input type="search" placeholder="Search messages" aria-label="Search messages">
+        </div>
+
+        <div class="chat-header-tabs">
+            <button type="button" class="active" data-chat-filter="all">All</button>
+            <button type="button" data-chat-filter="unseen">Unseen</button>
+        </div>
+
+        <div class="chat-header-list">
+            <a href="{% url 'admin_messages_page' %}" class="chat-header-item is-unseen" data-open-conversation
+                data-chat-name="Seller Support" data-chat-avatar="S"
+                data-chat-preview="Product approval question waiting.">
+                <img src="{% static 'assets/img/logo.jpg' %}" alt="">
+                <span>
+                    <strong>Seller Support</strong>
+                    <small>You: Product approval question waiting. &middot; 2h</small>
+                </span>
+            </a>
+            <a href="{% url 'admin_messages_page' %}" class="chat-header-item" data-open-conversation
+                data-chat-name="Facility Desk" data-chat-avatar="F" data-chat-preview="Booking inquiry needs a response.">
+                <span class="chat-header-avatar">F</span>
+                <span>
+                    <strong>Facility Desk</strong>
+                    <small>Booking inquiry needs a response. &middot; 2h</small>
+                </span>
+            </a>
+            <a href="{% url 'admin_messages_page' %}" class="chat-header-item" data-open-conversation
+                data-chat-name="Admin Chat" data-chat-avatar="A"
+                data-chat-preview="System messages and support chats appear here.">
+                <span class="chat-header-avatar">A</span>
+                <span>
+                    <strong>Admin Chat</strong>
+                    <small>System messages and support chats appear here. &middot; 3h</small>
+                </span>
+            </a>
+            <a href="{% url 'admin_messages_page' %}" class="chat-header-item" data-open-conversation
+                data-chat-name="Marketplace" data-chat-avatar="M" data-chat-preview="Seller product monitoring updates.">
+                <span class="chat-header-avatar">M</span>
+                <span>
+                    <strong>Marketplace</strong>
+                    <small>Seller product monitoring updates. &middot; 6h</small>
+                </span>
+            </a>
+        </div>
+
+        <a href="{% url 'admin_messages_page' %}" class="chat-header-see-all">See all Messages</a>
+    </div>
+</div>
+
+<section class="conversation-popover" id="conversationPopover" aria-label="Conversation panel" hidden>
+    <header class="conversation-popover-header">
+        <div class="conversation-popover-user">
+            <span class="conversation-popover-avatar" data-conversation-avatar>S</span>
+            <div>
+                <strong data-conversation-name>Seller Support</strong>
+                <small>Active now</small>
+            </div>
+        </div>
+        <div class="conversation-popover-actions">
+            <button type="button" class="conversation-popover-btn" data-conversation-minimize aria-label="Minimize">
+                <span></span>
+            </button>
+            <button type="button" class="conversation-popover-btn" data-conversation-close aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="conversation-popover-body">
+        <div class="conversation-popover-time">2:22 AM</div>
+        <div class="conversation-bubble conversation-bubble-in">Hi Admin!</div>
+        <div class="conversation-bubble conversation-bubble-in" data-conversation-preview>
+            Product approval question waiting.
+        </div>
+        <div class="conversation-bubble conversation-bubble-out">
+            Hi! Please send the details and we will review it.
+        </div>
+        <div class="conversation-popover-time">Sent</div>
+    </div>
+
+    <form class="conversation-popover-composer">
+        <input type="text" placeholder="Aa" aria-label="Type a message">
+        <button type="button" aria-label="Send message">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M6 12 3.269 3.806A59.768 59.768 0 0 1 21.485 12 59.77 59.77 0 0 1 3.27 20.194L6 12Zm0 0h7.5" />
+            </svg>
+        </button>
+    </form>
+</section>
